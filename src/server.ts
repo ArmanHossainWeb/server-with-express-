@@ -250,6 +250,24 @@ app.put("/todos/:id", async (req, res) => {
   }
 });
 
+app.delete("/todos/:id", async(req:Request, res:Response) => {
+  try {
+    const result = await pool.query("DELETE FROM todos WHERE id=$1 RETURNING *",[req.params.id])
+    if(result.rowCount === 0){
+     return res.status(400).json({error:"todo not found"})
+    }
+    res.json({
+      success:true,
+      message:"todo deleted successfully",
+      data: null
+    })
+
+  } catch (err:any) {
+    res.status(500).json({
+      error:"faild to delete todo"
+    })
+  }
+})
 
 
 
