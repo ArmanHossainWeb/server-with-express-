@@ -4,6 +4,7 @@ import initDB from "./config/db";
 import logger from "./middleware/logger";
 import { userRoutes } from "./modules/user/user.routes";
 import { todoRoute } from "./modules/todo/todo.routes";
+import { authRoutes } from "./modules/auth/auth.routes";
 
 
 const app = express()
@@ -27,6 +28,9 @@ app.use("/users", userRoutes);
 
 // todos CRUD
 app.use("/todos", todoRoute )
+
+// auth routes 
+app.use("/auth", authRoutes)
 
 
 app.use((req, res) => {
