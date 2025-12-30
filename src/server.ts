@@ -1,6 +1,6 @@
 import express, {  Request, Response } from "express"
 import config from "./config";
-import initDB, { pool } from "./config/db";
+import initDB from "./config/db";
 import logger from "./middleware/logger";
 import { userRoutes } from "./modules/user/user.routes";
 import { todoRoute } from "./modules/todo/todo.routes";
@@ -25,11 +25,8 @@ app.get('/', logger, (req: Request, res: Response) => {
 app.use("/users", userRoutes);
 
 
-
 // todos CRUD
 app.use("/todos", todoRoute )
-
-
 
 
 app.use((req, res) => {

@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { todoServices } from "./todo.service";
-import { pool } from "../../config/db";
 
 const createTodo = async (req: Request, res: Response) => {
   const { user_id, title } = req.body;
