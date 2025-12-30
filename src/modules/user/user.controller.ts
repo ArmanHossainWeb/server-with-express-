@@ -117,7 +117,7 @@ const deleteUser = async (req: Request, res: Response) => {
   }
 }
 
-export const userControlers = {
+export const userControllers = {
     createUser,
     getUser,
     getSingle,
