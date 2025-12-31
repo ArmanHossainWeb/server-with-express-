@@ -1,5 +1,7 @@
 import express from "express";
 import { userControllers } from "./user.controller";
+import logger from "../../middleware/logger";
+import auth from "../../middleware/auth";
 
 const router = express.Router()
 
@@ -7,7 +9,7 @@ const router = express.Router()
 
 router.post("/", userControllers.createUser )
 
-router.get("/",userControllers.getUser)
+router.get("/",logger, auth() ,userControllers.getUser)
 
 router.get("/:id", userControllers.getSingle)
 
