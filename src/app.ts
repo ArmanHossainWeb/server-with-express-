@@ -20,6 +20,7 @@ initDB();
 
 app.get('/', logger, (req: Request, res: Response) => {
   res.send('Hello World!, Arman Hossain')
+  
 })
 
 // users CRUD 
